@@ -24,7 +24,6 @@ app.get('/', (req, res) => {
 app.post('/add_quiz_question', function (req, res) {
   quotesCollection.insertOne(req.body)
   .then(result => {
-    console.log(result)
     res.send({"response": "success"});
   })
   .catch(error => console.error(error))
@@ -33,7 +32,6 @@ app.post('/add_quiz_question', function (req, res) {
 app.get('/get_quiz_questions', (req, res) => {
   quotesCollection.find().toArray()
     .then(results => {
-      console.log(results)
       res.send({"results": results})
     })
     .catch(error => console.error(error))
